@@ -665,15 +665,18 @@ var CalendarHeader = function (_Component) {
           "div",
           { className: "ReactCalendarHeader__left" },
           _react2.default.createElement(
-            "div",
-            { className: "ReactCalendarHeader__directions" },
-            _react2.default.createElement("button", {
-              onClick: this.previousMonth,
-              className: "ReactCalendarHeader__directionbtn"
-            }),
-            _react2.default.createElement("button", {
-              onClick: this.nextMonth,
-              className: "ReactCalendarHeader__directionbtn"
+            "select",
+            {
+              value: (0, _dateFns.format)(month, "YYYY-MM-DD", { locale: locale }),
+              className: "ReactCalendarHeader__monthpicker",
+              onChange: this.onMonthChange
+            },
+            months.map(function (m) {
+              return _react2.default.createElement(
+                "option",
+                { value: (0, _dateFns.format)(m, "YYYY-MM-DD", { locale: locale }) },
+                (0, _dateFns.format)(m, "MMMM YYYY", { locale: locale })
+              );
             })
           ),
           selectionRange ? _react2.default.createElement(
@@ -687,18 +690,15 @@ var CalendarHeader = function (_Component) {
           ) : null
         ),
         _react2.default.createElement(
-          "select",
-          {
-            value: (0, _dateFns.format)(month, "YYYY-MM-DD", { locale: locale }),
-            className: "ReactCalendarHeader__monthpicker",
-            onChange: this.onMonthChange
-          },
-          months.map(function (m) {
-            return _react2.default.createElement(
-              "option",
-              { value: (0, _dateFns.format)(m, "YYYY-MM-DD", { locale: locale }) },
-              (0, _dateFns.format)(m, "MMMM YYYY", { locale: locale })
-            );
+          "div",
+          { className: "ReactCalendarHeader__directions" },
+          _react2.default.createElement("button", {
+            onClick: this.previousMonth,
+            className: "ReactCalendarHeader__directionbtn"
+          }),
+          _react2.default.createElement("button", {
+            onClick: this.nextMonth,
+            className: "ReactCalendarHeader__directionbtn"
           })
         )
       );
