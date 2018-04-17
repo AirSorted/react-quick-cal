@@ -1,8 +1,10 @@
 .ReactCalendarHeader {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
   .ReactCalendarHeader__left {
+    align-items: center;
     display: flex; }
   .ReactCalendarHeader__monthpicker {
     outline: none;
